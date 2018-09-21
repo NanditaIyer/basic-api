@@ -12,10 +12,10 @@ const GetRemoteDataHandler = {
   async handle(handlerInput) {
     let outputSpeech = 'This is the default message.';
 
-    await getRemoteData('http://api.openweathermap.org/data/2.5/weather?q=London')
+    await getRemoteData('http://api.openweathermap.org/data/2.5/weather?q={city name}')
       .then((response) => {
         const data = JSON.parse(response);
-        outputSpeech = `The temperature in London is ${data.main.temp}. `;
+        outputSpeech = `The weather in ${city name} is ${data.main.temp}.`;
 
       })
       .catch((err) => {
